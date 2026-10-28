@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import "@fontsource/barlow-condensed/600.css";
+@import "@fontsource/barlow-condensed/800.css";
+@import "@fontsource-variable/inter-tight";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* MW4 LIVE — the People's Broadcast. Socialist-realist poster: cream paper, poster red, gold stars,
+   sunburst rays and strict symmetry. Satire of a style, set in a fictional state. */
+:root {
+  --studio: #f1e4c3;   /* page: aged poster paper */
+  --panel: #f8eed6;    /* raised paper */
+  --panel-2: #e8d7ad;  /* recessed / hover */
+  --rule: #cdb98a;
+  --tally: #c4161c;    /* poster red: live, primary action */
+  --tally-hot: #a50f15;
+  --deep: #7d0c10;     /* ray shadow */
+  --amber: #e8a317;    /* gold: stars, replays */
+  --paper: #1d1410;    /* text: ink */
+  --mute: #6b5640;
+  --cream: #f6ead0;
+  color-scheme: light;
+}
+@theme inline {
+  --color-studio: var(--studio); --color-panel: var(--panel); --color-panel-2: var(--panel-2); --color-rule: var(--rule);
+  --color-tally: var(--tally); --color-amber: var(--amber); --color-paper: var(--paper); --color-mute: var(--mute); --color-cream: var(--cream); --color-deep: var(--deep);
+  --font-sans: "Inter Tight Variable", system-ui, sans-serif;
+  --font-cond: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+html, body { background: var(--studio); color: var(--paper); }
+body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+
+/* Display: condensed, uppercase, tight — the broadcast voice */
+.display { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; line-height: .88; letter-spacing: -.005em; text-wrap: balance; overflow-wrap: break-word; }
+.kicker { font-family: var(--font-cond); font-weight: 600; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; color: var(--tally-hot); }
+.tc { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* The mark */
+.mark { display: inline-flex; align-items: center; font-family: var(--font-cond); font-weight: 800; letter-spacing: .02em; line-height: 1; }
+.mark b { background: var(--tally); color: #fff; padding: .28em .5em .22em .4em; clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%); font-weight: 800; }
+.mark span { padding-left: .35em; }
+
+/* Chyron — the signature element. A name bar with a tally strip. */
+.chyron { display: inline-flex; align-items: stretch; font-family: var(--font-cond); text-transform: uppercase; font-weight: 800; line-height: 1; }
+.chyron > .k { background: var(--tally); color: #fff; padding: .5em .7em .42em; display: flex; align-items: center; gap: .5em; letter-spacing: .08em; }
+.chyron > .k.amber { background: var(--amber); color: var(--paper); }
+.chyron > .k.steel { background: var(--paper); color: var(--cream); }
+.chyron > .v { background: var(--cream); color: var(--paper); box-shadow: inset 0 0 0 2px var(--paper); padding: .5em .85em .42em; letter-spacing: .03em; }
+.tally-dot { width: .55em; height: .55em; border-radius: 99px; background: currentColor; animation: tally 1.2s steps(2) infinite; }
+@keyframes tally { 50% { opacity: .25; } }
+
+/* Panels */
+.panel { background: var(--panel); border: 1px solid var(--rule); }
+.slate { position: relative; background: var(--panel); border: 3px solid var(--paper); box-shadow: 8px 8px 0 var(--tally); }
+.scan::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(transparent 0 3px, rgba(29,20,16,.035) 3px 4px); }
+
+/* Controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+  font-size: 1.05rem; padding: .78rem 1.35rem .7rem; transition: background .15s, color .15s, transform .1s; }
+.btn:active { transform: translateY(1px); }
+.btn-live { background: var(--tally); color: #fff; } .btn-live:hover { background: var(--tally-hot); }
+.btn-line { box-shadow: inset 0 0 0 2px var(--paper); } .btn-line:hover { background: var(--paper); color: var(--studio); }
+.field { width: 100%; background: var(--studio); border: 1px solid var(--rule); padding: .7rem .85rem; color: var(--paper); }
+.field:focus { outline: none; border-color: var(--tally); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+label > span.l { font-family: var(--font-cond); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: var(--mute); }
+
+/* Ticker */
+.ticker-track { display: inline-flex; gap: 3.5rem; padding-left: 100%; white-space: nowrap; animation: tick 55s linear infinite; }
+@keyframes tick { to { transform: translateX(-100%); } }
+
+/* Grid background used behind the hero */
+.gridbg { background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: 64px 64px; }
+
+@media (prefers-reduced-motion: reduce) { .ticker-track, .tally-dot { animation: none; } .ticker-track { padding-left: 0; } }
+@media (max-width: 640px) { .display.huge { font-size: clamp(3rem, 16vw, 5rem) !important; } }
+
+/* ★ Poster system ★ */
+.rays { background: repeating-conic-gradient(from -90deg at 50% 100%, var(--tally) 0 5deg, var(--deep) 5deg 10deg); }
+.rays-gold { background: repeating-conic-gradient(from -90deg at 50% 100%, var(--amber) 0 5deg, #c98a0c 5deg 10deg); }
+.rays-c { background: repeating-conic-gradient(from 0deg at 50% 50%, var(--tally) 0 7.5deg, var(--deep) 7.5deg 15deg); }
+.paper-tex { background-color: var(--studio); background-image: radial-gradient(rgba(125,12,16,.05) 1px, transparent 1px); background-size: 6px 6px; }
+.banner-ribbon { display: inline-block; background: var(--tally); color: var(--cream); font-family: var(--font-cond); font-weight: 800; text-transform: uppercase;
+  letter-spacing: .14em; padding: .45em 2.2em .38em; clip-path: polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%); }
+.frame-ink { border: 3px solid var(--paper); box-shadow: 0 0 0 6px var(--cream), 0 0 0 9px var(--paper); }
+.slogan { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.stars::before, .stars::after { content: "★"; color: var(--amber); margin: 0 .5em; }

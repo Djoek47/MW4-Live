@@ -1,0 +1,1884 @@
+{
+ "name": "MW4 Live",
+ "current_scene": "24/7 \u00b7 REPLAY LOOP",
+ "current_program_scene": "24/7 \u00b7 REPLAY LOOP",
+ "current_transition": "Fade",
+ "transition_duration": 400,
+ "scene_order": [
+  {
+   "name": "24/7 \u00b7 REPLAY LOOP"
+  },
+  {
+   "name": "24/7 \u00b7 HIGHLIGHT REEL"
+  },
+  {
+   "name": "24/7 \u00b7 SCHEDULE CARD"
+  },
+  {
+   "name": "LIVE \u00b7 STARTING SOON"
+  },
+  {
+   "name": "LIVE \u00b7 CONSOLE"
+  },
+  {
+   "name": "LIVE \u00b7 PC"
+  },
+  {
+   "name": "LIVE \u00b7 DESK"
+  },
+  {
+   "name": "LIVE \u00b7 INTERVIEW"
+  },
+  {
+   "name": "LIVE \u00b7 GUEST GAMEPLAY"
+  },
+  {
+   "name": "LIVE \u00b7 CHALLENGE"
+  },
+  {
+   "name": "LIVE \u00b7 BRB"
+  },
+  {
+   "name": "LIVE \u00b7 ENDING"
+  }
+ ],
+ "sources": [
+  {
+   "name": "Elgato (Console)",
+   "id": "dshow_input",
+   "versioned_id": "dshow_input",
+   "uuid": "04cb4fe2-1c0a-4221-963d-a10886fa0c9b",
+   "settings": {
+    "video_device_id": "",
+    "audio_output_mode": 0,
+    "res_type": 1,
+    "resolution": "1920x1080",
+    "fps_type": 0
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "Host Cam",
+   "id": "dshow_input",
+   "versioned_id": "dshow_input",
+   "uuid": "1eb32ae4-ee2a-489b-acd0-1b478a9e45a2",
+   "settings": {
+    "video_device_id": "",
+    "res_type": 0
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "Host Mic",
+   "id": "wasapi_input_capture",
+   "versioned_id": "wasapi_input_capture",
+   "uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+   "settings": {
+    "device_id": "default"
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "PC Game Capture",
+   "id": "game_capture",
+   "versioned_id": "game_capture",
+   "uuid": "25772ebf-3991-42ed-b177-f68b71472925",
+   "settings": {
+    "capture_mode": "any_fullscreen",
+    "capture_cursor": false
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "Guest (VDO.Ninja)",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "f88b028a-dd0e-4d56-8712-849dbaeb3929",
+   "settings": {
+    "is_local_file": false,
+    "url": "https://vdo.ninja/?view=MW4GUEST1&cleanoutput&transparent",
+    "width": 1280,
+    "height": 720,
+    "reroute_audio": true
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "Replay Loop (VLC)",
+   "id": "vlc_source",
+   "versioned_id": "vlc_source",
+   "uuid": "0290c29a-768a-4ff9-a85f-54cc6f89912c",
+   "settings": {
+    "playlist": [
+     {
+      "value": "C:/MW4-Live/media/loop",
+      "hidden": false,
+      "selected": false
+     }
+    ],
+    "loop": true,
+    "shuffle": true,
+    "playback_behavior": "always_play"
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "Highlight Reels (VLC)",
+   "id": "vlc_source",
+   "versioned_id": "vlc_source",
+   "uuid": "fa8d25af-e335-4663-a365-9c1127ae22aa",
+   "settings": {
+    "playlist": [
+     {
+      "value": "C:/MW4-Live/media/reels",
+      "hidden": false,
+      "selected": false
+     }
+    ],
+    "loop": true,
+    "shuffle": false,
+    "playback_behavior": "always_play"
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "Bed Music",
+   "id": "ffmpeg_source",
+   "versioned_id": "ffmpeg_source",
+   "uuid": "2a94efdf-3fca-4595-8c1d-1b7d4425ea4f",
+   "settings": {
+    "local_file": "C:/MW4-Live/media/music/bed.mp3",
+    "looping": true,
+    "is_local_file": true
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 0.25,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Frame LIVE",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "1cfc9e84-6399-4a7b-b984-9770f153df26",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/frame.html",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Frame REPLAY",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "057d9b04-799f-4bc6-9f8b-45dcf79c924b",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/frame.html?mode=replay",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Frame REEL",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "b377b53c-2cd2-4516-b105-5568fb440cbe",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/frame.html?mode=reel",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Lower Third Host",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "da45febc-e648-4a59-95eb-de0dc9d2b9de",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/lowerthird.html?who=host",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Lower Third Guest",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "4b3e2da0-4981-49a4-b0f7-c49e00eaddda",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/lowerthird.html?who=guest",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Interview",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "b39bd101-ff1a-44a0-801e-b5e8b2aacd18",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/interview.html",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Scoreboard",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "ca94c0aa-46fa-4249-9379-a0f6d1ea3198",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/scoreboard.html",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Starting Soon",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "321d1fee-83a9-40f9-98fa-e7b8e4d561d3",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/card.html?type=starting&min=5",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 BRB",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "67658aa6-d420-4da6-b7e7-548d70d5a5f0",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/card.html?type=brb",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Ending",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "0fbdce9d-6f6e-4632-a9f2-3104defb4cb8",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/card.html?type=ending",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "GFX \u00b7 Schedule",
+   "id": "browser_source",
+   "versioned_id": "browser_source",
+   "uuid": "120fae2f-6dd6-4139-b9da-42557c56e003",
+   "settings": {
+    "is_local_file": false,
+    "url": "file:///C:/MW4-Live/broadcast/overlays/card.html?type=schedule",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shutdown": false,
+    "restart_when_active": true,
+    "css": ""
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "24/7 \u00b7 REPLAY LOOP",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "784fb372-2521-4ade-9f23-1900e27d895a",
+   "settings": {
+    "id_counter": 2,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Replay Loop (VLC)",
+      "source_uuid": "0290c29a-768a-4ff9-a85f-54cc6f89912c",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame REPLAY",
+      "source_uuid": "057d9b04-799f-4bc6-9f8b-45dcf79c924b",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "24/7 \u00b7 HIGHLIGHT REEL",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "9807456f-acbf-4792-a128-0396053fd6c6",
+   "settings": {
+    "id_counter": 2,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Highlight Reels (VLC)",
+      "source_uuid": "fa8d25af-e335-4663-a365-9c1127ae22aa",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame REEL",
+      "source_uuid": "b377b53c-2cd2-4516-b105-5568fb440cbe",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "24/7 \u00b7 SCHEDULE CARD",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "9ffe7d5f-2004-49aa-8c81-7f70efb1b9e4",
+   "settings": {
+    "id_counter": 2,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Bed Music",
+      "source_uuid": "2a94efdf-3fca-4595-8c1d-1b7d4425ea4f",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Schedule",
+      "source_uuid": "120fae2f-6dd6-4139-b9da-42557c56e003",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 STARTING SOON",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "ff0f8a92-b28b-4a5a-986a-7c30f1ff1398",
+   "settings": {
+    "id_counter": 2,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Bed Music",
+      "source_uuid": "2a94efdf-3fca-4595-8c1d-1b7d4425ea4f",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Starting Soon",
+      "source_uuid": "321d1fee-83a9-40f9-98fa-e7b8e4d561d3",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 CONSOLE",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "1f295741-c410-4ed8-b745-a82fe98da60d",
+   "settings": {
+    "id_counter": 5,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Elgato (Console)",
+      "source_uuid": "04cb4fe2-1c0a-4221-963d-a10886fa0c9b",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Cam",
+      "source_uuid": "1eb32ae4-ee2a-489b-acd0-1b478a9e45a2",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 1540,
+       "y": 600
+      },
+      "scale": {
+       "x": 0.18,
+       "y": 0.18
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Mic",
+      "source_uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 3,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame LIVE",
+      "source_uuid": "1cfc9e84-6399-4a7b-b984-9770f153df26",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 4,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Lower Third Host",
+      "source_uuid": "da45febc-e648-4a59-95eb-de0dc9d2b9de",
+      "visible": false,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 5,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 PC",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "63d7e7f2-6db1-4f7a-95de-34fee43d7c2f",
+   "settings": {
+    "id_counter": 5,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "PC Game Capture",
+      "source_uuid": "25772ebf-3991-42ed-b177-f68b71472925",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Cam",
+      "source_uuid": "1eb32ae4-ee2a-489b-acd0-1b478a9e45a2",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 1540,
+       "y": 600
+      },
+      "scale": {
+       "x": 0.18,
+       "y": 0.18
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Mic",
+      "source_uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 3,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame LIVE",
+      "source_uuid": "1cfc9e84-6399-4a7b-b984-9770f153df26",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 4,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Lower Third Host",
+      "source_uuid": "da45febc-e648-4a59-95eb-de0dc9d2b9de",
+      "visible": false,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 5,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 DESK",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "bd429bf7-8a3d-42a0-883b-1cb3fdf321f7",
+   "settings": {
+    "id_counter": 4,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Host Cam",
+      "source_uuid": "1eb32ae4-ee2a-489b-acd0-1b478a9e45a2",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Mic",
+      "source_uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame LIVE",
+      "source_uuid": "1cfc9e84-6399-4a7b-b984-9770f153df26",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 3,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Lower Third Host",
+      "source_uuid": "da45febc-e648-4a59-95eb-de0dc9d2b9de",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 4,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 INTERVIEW",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "b3a8c64f-8ee2-4987-93a9-e26c5a44e4e1",
+   "settings": {
+    "id_counter": 4,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Host Cam",
+      "source_uuid": "1eb32ae4-ee2a-489b-acd0-1b478a9e45a2",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 80,
+       "y": 170
+      },
+      "scale": {
+       "x": 0.4479166666666667,
+       "y": 0.4479166666666667
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "Guest (VDO.Ninja)",
+      "source_uuid": "f88b028a-dd0e-4d56-8712-849dbaeb3929",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 980,
+       "y": 170
+      },
+      "scale": {
+       "x": 0.671875,
+       "y": 0.671875
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Mic",
+      "source_uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 3,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Interview",
+      "source_uuid": "b39bd101-ff1a-44a0-801e-b5e8b2aacd18",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 4,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 GUEST GAMEPLAY",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "fa414b49-e3d9-4ad3-a813-467f2d30b06c",
+   "settings": {
+    "id_counter": 4,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Guest (VDO.Ninja)",
+      "source_uuid": "f88b028a-dd0e-4d56-8712-849dbaeb3929",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.5,
+       "y": 1.5
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Mic",
+      "source_uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame LIVE",
+      "source_uuid": "1cfc9e84-6399-4a7b-b984-9770f153df26",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 3,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Lower Third Guest",
+      "source_uuid": "4b3e2da0-4981-49a4-b0f7-c49e00eaddda",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 4,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 CHALLENGE",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "ff0886b2-851d-4b19-abd2-d2395ab43ba3",
+   "settings": {
+    "id_counter": 4,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Elgato (Console)",
+      "source_uuid": "04cb4fe2-1c0a-4221-963d-a10886fa0c9b",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "Host Mic",
+      "source_uuid": "24deaf25-a031-4d5c-b9e1-728f45fc1602",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Frame LIVE",
+      "source_uuid": "1cfc9e84-6399-4a7b-b984-9770f153df26",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 3,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Scoreboard",
+      "source_uuid": "ca94c0aa-46fa-4249-9379-a0f6d1ea3198",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 4,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 BRB",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "93b03c7e-a09b-444e-8c94-33f5fdc32ba1",
+   "settings": {
+    "id_counter": 2,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Bed Music",
+      "source_uuid": "2a94efdf-3fca-4595-8c1d-1b7d4425ea4f",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 BRB",
+      "source_uuid": "67658aa6-d420-4da6-b7e7-548d70d5a5f0",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  },
+  {
+   "name": "LIVE \u00b7 ENDING",
+   "id": "scene",
+   "versioned_id": "scene",
+   "uuid": "ef63a694-3ae3-4bce-8ab6-12fc898abd95",
+   "settings": {
+    "id_counter": 2,
+    "custom_size": false,
+    "items": [
+     {
+      "name": "Bed Music",
+      "source_uuid": "2a94efdf-3fca-4595-8c1d-1b7d4425ea4f",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 1,
+      "group_item_backup": false
+     },
+     {
+      "name": "GFX \u00b7 Ending",
+      "source_uuid": "0fbdce9d-6f6e-4632-a9f2-3104defb4cb8",
+      "visible": true,
+      "locked": false,
+      "pos": {
+       "x": 0,
+       "y": 0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0
+      },
+      "rot": 0.0,
+      "align": 5,
+      "bounds_type": 0,
+      "bounds": {
+       "x": 0,
+       "y": 0
+      },
+      "bounds_align": 0,
+      "crop_left": 0,
+      "crop_top": 0,
+      "crop_right": 0,
+      "crop_bottom": 0,
+      "id": 2,
+      "group_item_backup": false
+     }
+    ]
+   },
+   "enabled": true,
+   "muted": false,
+   "volume": 1.0,
+   "mixers": 255,
+   "sync": 0,
+   "flags": 0,
+   "filters": [],
+   "hotkeys": {},
+   "deinterlace_mode": 0,
+   "monitoring_type": 0,
+   "private_settings": {}
+  }
+ ],
+ "groups": [],
+ "quick_transitions": [],
+ "transitions": [],
+ "saved_projectors": [],
+ "modules": {},
+ "preview_locked": false,
+ "scaling_enabled": false,
+ "scaling_level": 0,
+ "scaling_off_x": 0.0,
+ "scaling_off_y": 0.0
+}

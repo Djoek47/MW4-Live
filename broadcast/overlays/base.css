@@ -1,0 +1,23 @@
+@font-face{font-family:'Barlow Condensed';font-weight:500;src:url(fonts/barlow-condensed-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:600;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:700;src:url(fonts/barlow-condensed-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-weight:800;src:url(fonts/barlow-condensed-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-weight:100 800;src:url(fonts/jetbrains-mono-latin-wght-normal.woff2) format('woff2')}
+:root{--red:#c4161c;--red-d:#7d0c10;--ink:#1d1410;--steel:#2a1f19;--line:#4a3a2e;--paper:#f6ead0;--mute:#b8a37f;--amber:#e8a317}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;font-family:'Barlow Condensed',sans-serif;color:var(--paper);text-transform:uppercase}
+.mono{font-family:'JetBrains Mono',monospace}
+.bug{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
+.bug .mark{background:var(--red);color:#fff;padding:4px 10px;font-size:28px;clip-path:polygon(0 0,100% 0,88% 100%,0 100%)}
+.bug .word{font-size:28px}
+.live-dot{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:800;padding:4px 12px;font-size:22px;letter-spacing:.1em}
+.live-dot::before{content:"";width:10px;height:10px;border-radius:50%;background:#fff;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+.full{position:absolute;inset:0;background:repeating-conic-gradient(from -90deg at 50% 118%,var(--red) 0 5deg,var(--red-d) 5deg 10deg);overflow:hidden}
+.full::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,transparent 30%,rgba(29,20,16,.55) 100%)}
+.star{display:inline-block;width:1em;height:1em;background:var(--amber);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.grid{display:none}
+@keyframes pan{to{background-position:80px 80px}}
+.scan{position:absolute;inset:0;background-image:radial-gradient(rgba(29,20,16,.12) 1px,transparent 1px);background-size:5px 5px;pointer-events:none;z-index:1}
+.tag{display:inline-block;padding:2px 8px;font-size:18px;font-weight:700;letter-spacing:.12em}
+.tag.live{background:var(--red)} .tag.replay{background:var(--amber);color:var(--ink)} .tag.reel{background:var(--paper);color:var(--ink)}

@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MW4 Interview</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* Two-up interview frame. The two boxes are transparent: put the host cam and the guest
+   (VDO.Ninja or Discord window capture) UNDER this source in OBS at the box positions below:
+   Box A: x=80  y=170 w=860 h=484      Box B: x=980 y=170 w=860 h=484 */
+.bg{position:absolute;inset:0}
+.box{position:absolute;top:170px;width:860px;height:484px;border:3px solid var(--red)}
+.a{left:80px}.b{left:980px}
+.nm{position:absolute;top:670px;font-size:48px;font-weight:800}
+.nm small{display:block;font-size:24px;color:var(--mute);letter-spacing:.12em}
+.head{position:absolute;top:56px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:center}
+.title{font-size:60px;font-weight:800}.title span{color:var(--red)}
+.q{position:absolute;left:80px;right:80px;top:800px;background:var(--steel);border-left:8px solid var(--red);padding:20px 28px;font-size:40px;font-weight:700;text-transform:none}
+.q b{color:var(--red);text-transform:uppercase;margin-right:14px}
+.bot{position:absolute;bottom:40px;left:80px;right:80px;display:flex;justify-content:space-between;color:var(--mute);font-size:24px}
+</style></head><body>
+<svg class="bg" width="1920" height="1080"><path fill="#0b0d0f" fill-rule="evenodd" d="M0 0H1920V1080H0Z M80 170H940V654H80Z M980 170H1840V654H980Z"/></svg>
+<div class="head"><div class="title"><span>THE WAR ROOM</span> · INTERVIEW</div><span class="live-dot">LIVE</span></div>
+<div class="box a"></div><div class="box b"></div>
+<div class="nm" style="left:80px" id="h"></div><div class="nm" style="left:980px" id="g"></div>
+<div class="q" id="q"></div>
+<div class="bot"><span>ASK A QUESTION IN CHAT WITH !Q</span><span>${''}</span><span class="mono" id="clock"></span></div>
+<script src="../config.js"></script><script src="base.js"></script>
+<script>
+$("#h").innerHTML = `${M.host.name}<small>${M.host.role}</small>`;
+$("#g").innerHTML = `${M.guest.name}<small>${M.guest.role}</small>`;
+// ?q=Your question text  — shows the current interview question
+const q = new URLSearchParams(location.search).get("q") || "What has surprised you most about MW4 so far?";
+$("#q").innerHTML = `<b>Q</b>${q}`; clock($("#clock"));
+document.querySelector(".bot span:nth-child(2)").textContent = M.handle;
+</script></body></html>

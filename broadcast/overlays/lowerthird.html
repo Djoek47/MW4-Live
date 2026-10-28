@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MW4 Lower Third</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* lowerthird.html?who=host  or ?who=guest. Toggle visibility in OBS; it animates in on show. */
+.lt{position:absolute;left:80px;bottom:120px;display:flex;animation:in .6s cubic-bezier(.2,.8,.2,1) both}
+.lt .bar{width:12px;background:var(--red)}
+.lt .body{background:var(--ink);padding:14px 28px 12px;border-bottom:3px solid var(--red)}
+.lt .name{font-size:64px;font-weight:800;line-height:1}
+.lt .role{font-size:26px;color:var(--mute);font-weight:600;letter-spacing:.12em;margin-top:4px}
+.lt .chip{align-self:flex-start;background:var(--red);padding:6px 12px;font-weight:800;font-size:22px}
+@keyframes in{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+</style></head><body>
+<div class="lt"><div class="bar"></div><div class="body"><div class="name" id="n"></div><div class="role" id="r"></div></div><div class="chip">MW4 LIVE</div></div>
+<script src="../config.js"></script><script src="base.js"></script>
+<script>const p = M[new URLSearchParams(location.search).get("who") || "host"]; $("#n").textContent = p.name; $("#r").textContent = p.role;</script>
+</body></html>

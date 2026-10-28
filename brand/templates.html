@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MW4 Brand</title>
+<!-- Renders every social asset. brand/render.py opens this at each size with ?a=<asset>. -->
+<link rel="stylesheet" href="../broadcast/overlays/base.css">
+<style>
+html,body{width:auto;height:auto;background:var(--ink)}
+.a{position:relative;overflow:hidden;background:repeating-conic-gradient(from -90deg at 50% 120%,var(--red) 0 5deg,var(--red-d) 5deg 10deg);color:var(--paper)}
+.a.c{background:repeating-conic-gradient(from 0deg at 50% 50%,var(--red) 0 7.5deg,var(--red-d) 7.5deg 15deg)}
+.a::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,transparent 35%,rgba(29,20,16,.5) 100%);pointer-events:none}
+.a>*{z-index:1}
+.stripe{display:none}
+.lock span{color:var(--paper);text-shadow:4px 4px 0 var(--red-d)}
+.c-h{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.4em}
+.st{display:inline-block;width:1em;height:1em;background:var(--amber);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.tagl{color:var(--amber)}
+.grid{position:absolute;inset:0;opacity:.28;animation:none}
+.stripe{position:absolute;background:var(--red);transform:rotate(18deg)}
+.lock{display:flex;align-items:center;font-weight:800;line-height:1}
+.lock b{background:var(--red);color:#fff;padding:.18em .42em .12em .32em;clip-path:polygon(0 0,100% 0,86% 100%,0 100%)}
+.lock span{padding-left:.28em}
+.tagl{font-weight:600;letter-spacing:.3em;color:var(--mute)}
+.chy{display:inline-flex;font-weight:800}.chy i{font-style:normal;background:var(--red);color:#fff;padding:.3em .55em .24em}.chy u{text-decoration:none;background:var(--paper);color:var(--ink);padding:.3em .6em .24em}
+.dot{display:inline-block;width:.5em;height:.5em;border-radius:50%;background:#fff;margin-right:.4em;vertical-align:.08em}
+</style></head><body>
+<div id="root"></div>
+<script>
+const A = new URLSearchParams(location.search).get("a"), R = document.getElementById("root");
+const lock = (px) => `<div class="lock" style="font-size:${px}px"><b>MW4</b><span>LIVE</span></div>`;
+const chy = (px, k, v) => `<div class="chy" style="font-size:${px}px"><i><span class="dot"></span>${k}</i><u>${v}</u></div>`;
+const T = {
+  // Square avatar: the mark alone, big and centred (reads at 32px)
+  avatar: [1000, 1000, `<div class="c-h"><span class="st" style="font-size:220px"></span><div class="lock" style="font-size:230px"><b>MW4</b></div><div style="font-size:150px;font-weight:800;text-shadow:6px 6px 0 var(--red-d)">LIVE</div></div>`, "c"],
+  discord_icon: [512, 512, `<div class="c-h"><span class="st" style="font-size:150px"></span><div style="font-size:170px;font-weight:800;text-shadow:6px 6px 0 var(--red-d)">MW4</div></div>`, "c"],
+  // Banners: keep the important stuff in the centre safe zone
+  twitch_banner: [1200, 480, `<div class="c-h"><div class="row" style="display:flex;align-items:center;gap:.5em;font-size:67px"><span class="st"></span>${lock(96)}<span class="st"></span></div><div class="tagl" style="font-size:23px">★ THE PEOPLE'S BROADCAST · 24/7 ★</div><div style="margin-top:10px">${chy(24, "LIVE DAILY", "09 · 12 · 15 · 18 · 21 ET")}</div></div>`],
+  youtube_banner: [2560, 1440, `<div class="c-h"><div class="row" style="display:flex;align-items:center;gap:.5em;font-size:118px"><span class="st"></span>${lock(170)}<span class="st"></span></div><div class="tagl" style="font-size:40px">★ THE PEOPLE'S BROADCAST OF MODERN WARFARE 4 ★</div></div>`],
+  x_banner: [1500, 500, `<div class="c-h" style="left:300px"><div style="display:flex;align-items:center;gap:.5em;font-size:77px"><span class="st"></span>${lock(110)}<span class="st"></span></div><div class="tagl" style="font-size:26px">★ LIVE ON TWITCH · 24/7 ★</div></div>`],
+  discord_banner: [960, 540, `<div class="c-h"><div class="row" style="display:flex;align-items:center;gap:.5em;font-size:62px"><span class="st"></span>${lock(90)}<span class="st"></span></div><div class="tagl" style="font-size:21px">★ CLIPS · THE PEOPLE'S VOTE · WAR ROOM ★</div></div>`],
+  og: [1200, 630, `<div class="c-h"><div class="tagl" style="font-size:24px;letter-spacing:.3em">★ THE PEOPLE'S BROADCAST ★</div><div style="font-size:118px;font-weight:800;line-height:.86;text-shadow:6px 6px 0 var(--red-d)">THE WAR NEVER<br>GOES OFF AIR</div>${lock(54)}</div>`],
+  // Twitch offline screen (shown when the stream is down — should be rare)
+  twitch_offline: [1920, 1080, `<div class="c-h"><div style="display:flex;align-items:center;gap:40px"><span class="st" style="font-size:90px"></span><div style="font-size:190px;font-weight:800;line-height:.86;text-shadow:8px 8px 0 var(--red-d)">THE BROADCAST<br>WILL RESUME</div><span class="st" style="font-size:90px"></span></div><div style="font-size:38px">Live shows 09:00 · 12:00 · 15:00 · 18:00 · 21:00 ET</div>${lock(70)}</div>`],
+  // Short-form cover / reel end card (9:16)
+  vertical_endcard: [1080, 1920, `<div class="c-h"><span class="st" style="font-size:160px"></span><div style="font-size:150px;font-weight:800;line-height:.86;text-shadow:7px 7px 0 var(--red-d)">FULL SHOW<br><span style="color:var(--amber)">LIVE NOW</span></div>${lock(110)}<div style="font-size:46px">twitch.tv/mw4livetv</div></div>`],
+};
+// Twitch panels 320x100
+["ABOUT", "SCHEDULE", "SEND A CLIP", "BE A GUEST", "DISCORD", "RULES"].forEach((p) => T["panel_" + p.toLowerCase().replace(/ /g, "_")] =
+  [320, 100, `<div style="position:absolute;inset:0;background:var(--paper);border:5px solid var(--ink);display:flex;align-items:center;justify-content:center;gap:14px;color:var(--ink)"><span class="st" style="font-size:26px;background:var(--red)"></span><div style="font-size:44px;font-weight:800">${p}</div><span class="st" style="font-size:26px;background:var(--red)"></span></div>`]);
+const [w, h, html, cls = ""] = T[A];
+R.innerHTML = `<div class="a ${cls}" style="width:${w}px;height:${h}px">${html}</div>`;
+window.SIZES = Object.fromEntries(Object.entries(T).map(([k, v]) => [k, [v[0], v[1]]]));
+</script></body></html>

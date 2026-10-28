@@ -1,0 +1,10 @@
+node_modules
+.next
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+media/**/*.mp4
+media/**/*.mp3
+media/**/*.mov
+.vercel
+__pycache__

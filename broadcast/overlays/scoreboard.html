@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MW4 Scoreboard</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* Top-center scoreboard for challenges and 1v1s. Edit score in config.js (auto-refreshes within 60s),
+   or override instantly: scoreboard.html?l=2&r=1 */
+.sb{position:absolute;top:24px;left:50%;transform:translateX(-50%);display:flex;align-items:stretch;font-weight:800}
+.team{background:var(--ink);padding:10px 26px;font-size:34px;display:flex;align-items:center;min-width:300px}
+.team.l{justify-content:flex-end;border-bottom:4px solid var(--red)}
+.team.r{border-bottom:4px solid var(--paper)}
+.pts{background:var(--red);width:84px;display:flex;align-items:center;justify-content:center;font-size:52px}
+.pts.r{background:var(--paper);color:var(--ink)}
+.mid{background:var(--steel);padding:0 18px;display:flex;align-items:center;font-size:22px;color:var(--mute);letter-spacing:.1em}
+</style></head><body>
+<div class="sb"><div class="team l" id="lt"></div><div class="pts" id="ls"></div><div class="mid" id="lb"></div><div class="pts r" id="rs"></div><div class="team r" id="rt"></div></div>
+<script src="../config.js"></script><script src="base.js"></script>
+<script>const q = new URLSearchParams(location.search), S = M.score;
+$("#lt").textContent = S.left; $("#rt").textContent = S.right; $("#lb").textContent = S.label;
+$("#ls").textContent = q.get("l") ?? S.leftScore; $("#rs").textContent = q.get("r") ?? S.rightScore;</script>
+</body></html>

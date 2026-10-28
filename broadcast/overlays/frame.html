@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MW4 Frame</title>
+<link rel="stylesheet" href="base.css">
+<style>
+/* Gameplay frame. Use frame.html for live, frame.html?mode=replay for the 24/7 loop, ?mode=reel for highlight reels */
+.top{position:absolute;top:28px;left:32px;display:flex;gap:14px;align-items:center}
+.clock{position:absolute;top:32px;right:32px;font-size:24px;background:rgba(11,13,15,.8);padding:4px 12px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:56px;display:flex;background:var(--ink);border-top:3px solid var(--red)}
+.now{background:var(--red);padding:0 22px;display:flex;align-items:center;font-weight:800;font-size:26px;white-space:nowrap}
+.tick{flex:1;overflow:hidden;display:flex;align-items:center}
+.tick span{white-space:nowrap;font-size:24px;font-weight:600;animation:scroll 40s linear infinite;padding-left:100%}
+.tick b{color:var(--red);margin:0 28px}
+@keyframes scroll{to{transform:translateX(-100%)}}
+.next{background:var(--steel);padding:0 22px;display:flex;align-items:center;gap:10px;font-size:22px;white-space:nowrap}
+.next em{font-style:normal;color:var(--mute)}
+</style></head><body>
+<div class="top"><div id="bug"></div><div id="state"></div></div>
+<div class="clock mono" id="clock"></div>
+<div class="bar"><div class="now" id="now"></div><div class="tick"><span id="tick"></span></div><div class="next" id="next"></div></div>
+<script src="../config.js"></script><script src="base.js"></script>
+<script>
+const mode = new URLSearchParams(location.search).get("mode") || "live";
+$("#bug").innerHTML = bug();
+$("#state").innerHTML = mode === "live" ? `<span class="live-dot">LIVE</span>` : `<span class="tag ${mode}">${mode === "replay" ? "REPLAY" : "HIGHLIGHT REEL"}</span>`;
+const s = slots();
+$("#now").textContent = mode === "live" ? M.nowShow : s.current.show;
+$("#tick").innerHTML = M.ticker.join("<b>///</b>");
+$("#next").innerHTML = `<em>UP NEXT</em> ${s.next[0].time} ${s.next[0].show}`;
+clock($("#clock"));
+</script></body></html>

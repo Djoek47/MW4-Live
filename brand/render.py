@@ -14,7 +14,7 @@ async def main():
     async with async_playwright() as p:
         b = await p.chromium.launch()
         pg = await b.new_page()
-        await pg.goto(PAGE + "?a=avatar")
+        await pg.goto(PAGE + "?a=og")
         sizes = await pg.evaluate("window.SIZES")
         for name, (w, h) in sizes.items():
             await pg.set_viewport_size({"width": w, "height": h})
@@ -23,6 +23,14 @@ async def main():
             await pg.wait_for_timeout(150)
             await pg.screenshot(path=str(OUT / f"{name}-{w}x{h}.png"), clip={"x": 0, "y": 0, "width": w, "height": h})
             print("ok", name, w, h)
+        # Avatars + favicon = the state seal (public/brand/seal.svg; rebuild with brand/seal.py)
+        seal = (HERE.parent / "public/brand/seal.svg").as_uri()
+        for n in (1000, 400, 180):
+            await pg.set_viewport_size({"width": n, "height": n})
+            await pg.set_content(f'<body style="margin:0;background:#e8a317"><img src="{seal}" style="width:{n}px;height:{n}px;display:block"></body>')
+            await pg.wait_for_timeout(300)
+            await pg.screenshot(path=str(OUT / f"avatar-{n}x{n}.png"))
+            print("ok avatar", n)
         await b.close()
 
 asyncio.run(main())

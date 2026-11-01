@@ -28,7 +28,6 @@ const lock = (px) => `<div class="lock" style="font-size:${px}px"><b>MW4</b><spa
 const chy = (px, k, v) => `<div class="chy" style="font-size:${px}px"><i><span class="dot"></span>${k}</i><u>${v}</u></div>`;
 const T = {
   // Square avatar: the mark alone, big and centred (reads at 32px)
-  avatar: [1000, 1000, `<div class="c-h"><span class="st" style="font-size:220px"></span><div class="lock" style="font-size:230px"><b>MW4</b></div><div style="font-size:150px;font-weight:800;text-shadow:6px 6px 0 var(--red-d)">LIVE</div></div>`, "c"],
   discord_icon: [512, 512, `<div class="c-h"><span class="st" style="font-size:150px"></span><div style="font-size:170px;font-weight:800;text-shadow:6px 6px 0 var(--red-d)">MW4</div></div>`, "c"],
   // Banners: keep the important stuff in the centre safe zone
   twitch_banner: [1200, 480, `<div class="c-h"><div class="row" style="display:flex;align-items:center;gap:.5em;font-size:67px"><span class="st"></span>${lock(96)}<span class="st"></span></div><div class="tagl" style="font-size:23px">★ THE PEOPLE'S BROADCAST · 24/7 ★</div><div style="margin-top:10px">${chy(24, "LIVE DAILY", "09 · 12 · 15 · 18 · 21 ET")}</div></div>`],

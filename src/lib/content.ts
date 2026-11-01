@@ -1,7 +1,19 @@
 // MW4 LIVE — single source for the site. Keep broadcast/config.js schedule in step with DAILY below.
 
 export const CHANNEL = process.env.NEXT_PUBLIC_TWITCH_CHANNEL || "mw4livetv";
-export const PILOT_START = "2026-10-29"; // Day 1 of the 21-day 24/7 pilot (Eastern)
+/** YouTube channel ID (starts with UC…, from youtube.com/account_advanced). Empty = YouTube player off. */
+export const YOUTUBE_CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || "";
+export type Platform = "twitch" | "youtube";
+/** Which platforms the site shows. Set NEXT_PUBLIC_TWITCH_CHANNEL="" to turn Twitch off. */
+export const platforms: Platform[] = [
+  ...(CHANNEL ? (["twitch"] as const) : []),
+  ...(YOUTUBE_CHANNEL_ID ? (["youtube"] as const) : []),
+];
+/** Default player when both are on: NEXT_PUBLIC_PRIMARY_PLATFORM=youtube|twitch */
+export const PRIMARY: Platform = (process.env.NEXT_PUBLIC_PRIMARY_PLATFORM as Platform) && platforms.includes(process.env.NEXT_PUBLIC_PRIMARY_PLATFORM as Platform)
+  ? (process.env.NEXT_PUBLIC_PRIMARY_PLATFORM as Platform) : platforms[0] ?? "twitch";
+/** Day 1 of the 21-day pilot (Eastern). Change with NEXT_PUBLIC_PILOT_START=YYYY-MM-DD if launch moves. */
+export const PILOT_START = process.env.NEXT_PUBLIC_PILOT_START || "2026-10-29";
 export const PILOT_DAYS = 21;
 
 export type Slot = { time: string; end: string; show: string; kind: "live" | "replay" | "reel" };
@@ -57,7 +69,7 @@ export const TICKER = [
 /** Update hrefs once each account exists. One handle everywhere. */
 export const SOCIALS = [
   { id: "twitch", label: "Twitch", href: `https://www.twitch.tv/${CHANNEL}` },
-  { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@mw4livetv" },
+  { id: "youtube", label: "YouTube", href: YOUTUBE_CHANNEL_ID ? `https://www.youtube.com/channel/${YOUTUBE_CHANNEL_ID}` : "https://www.youtube.com/@mw4livetv" },
   { id: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@mw4livetv" },
   { id: "instagram", label: "Instagram", href: "https://www.instagram.com/mw4livetv" },
   { id: "x", label: "X", href: "https://x.com/mw4livetv" },

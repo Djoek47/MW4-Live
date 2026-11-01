@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { TwitchChat, TwitchPlayer } from "@/components/Twitch";
+import { FollowLink, PlatformSwitch, TwitchChat, TwitchPlayer } from "@/components/Twitch";
 import { NowNext } from "@/components/OnAir";
 import { PilotBadge } from "@/components/Pilot";
-import { CHANNEL } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Watch live" };
 
@@ -13,8 +12,8 @@ export default function Watch() {
         <div>
           <div className="slate p-1.5"><TwitchPlayer /></div>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-            <PilotBadge />
-            <a href={`https://www.twitch.tv/${CHANNEL}`} target="_blank" rel="noreferrer" className="btn btn-line !py-2 !text-sm">Open on Twitch · follow for alerts</a>
+            <div className="flex flex-wrap items-center gap-3"><PilotBadge /><PlatformSwitch /></div>
+            <FollowLink className="btn btn-line !py-2 !text-sm" />
           </div>
           <div className="mt-4"><NowNext /></div>
           <div className="mt-4 grid sm:grid-cols-3 gap-px bg-rule border border-rule text-sm">

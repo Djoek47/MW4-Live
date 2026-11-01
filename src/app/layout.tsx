@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { OnAirBar, Ticker } from "@/components/OnAir";
-import { Mark, SocialRow } from "@/components/Mark";
+import { Lockup, SocialRow } from "@/components/Mark";
+import { ThemeToggle, themeScript } from "@/components/ThemeToggle";
 import { NavAuth } from "@/components/NavAuth";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mw4live.com"),
   title: { default: "MW4 Live — the Modern Warfare 4 network, on air 24/7", template: "%s · MW4 Live" },
-  description: "A 24/7 Modern Warfare 4 channel on Twitch: five live shows a day, creator interviews, community clips and labelled replays in between.",
+  description: "A 24/7 Modern Warfare 4 channel on YouTube and Twitch: five live shows a day, creator interviews, community clips and labelled replays in between.",
   openGraph: { images: ["/brand/og-1200x630.png"] },
 };
 
@@ -22,17 +23,19 @@ const nav = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
       <body className="min-h-screen flex flex-col">
         <header className="sticky top-0 z-40 bg-studio/95 backdrop-blur border-b-2 border-paper">
           <div className="border-b border-rule">
-            <div className="mx-auto max-w-7xl px-4 h-16 flex items-center gap-6">
-              <Link href="/" aria-label="MW4 Live home"><Mark className="text-[26px]" /></Link>
+            <div className="mx-auto max-w-7xl px-4 h-16 flex items-center gap-4 sm:gap-6">
+              <Link href="/" aria-label="MW4 Live home" className="shrink-0"><Lockup /></Link>
               <nav className="hidden md:flex gap-6">
                 {nav.map((n) => <Link key={n.href} href={n.href} className="display text-lg tracking-wide text-mute hover:text-paper">{n.label}</Link>)}
               </nav>
               <div className="ml-auto flex items-center gap-2">
                 <Link href="/submit" className="btn btn-live !py-2 !px-4 !text-sm hidden sm:inline-flex">Send a clip</Link>
+                <ThemeToggle />
                 <NavAuth />
               </div>
             </div>
@@ -44,10 +47,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
         <main className="flex-1">{children}</main>
         <Ticker />
-        <footer className="bg-paper text-cream [&_.text-mute]:text-cream/60">
+        <footer className="bg-asphalt text-cream [&_.text-mute]:text-cream/60 [&_a]:border-cream/40">
           <div className="mx-auto max-w-7xl px-4 py-12 grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
             <div>
-              <Mark className="text-3xl" />
+              <Lockup big />
               <p className="mt-4 text-mute max-w-md">The People&apos;s Broadcast of Modern Warfare 4. Live shows every day, replays clearly labelled in between, and the community on screen.</p>
               <SocialRow className="mt-5" />
             </div>

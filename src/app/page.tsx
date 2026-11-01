@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TwitchPlayer } from "@/components/Twitch";
+import { PlatformSwitch, TwitchPlayer } from "@/components/Twitch";
 import { NowNext } from "@/components/OnAir";
 import { PilotBadge, PilotStrip } from "@/components/Pilot";
 import { SocialRow } from "@/components/Mark";
@@ -18,10 +18,11 @@ export default function Home() {
           <h1 className="display huge text-[4.2rem] md:text-[9rem] mt-4 [text-shadow:5px_5px_0_var(--deep)]">The war never<br />goes off air</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-cream/90">By decree, Modern Warfare 4 is broadcast 24 hours a day. Five live shows daily, comrades at the desk, your clips on screen. Replays are always labelled REPLAY, because the Ministry never lies about replays.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/watch" className="btn bg-amber text-paper hover:brightness-110"><span className="tally-dot" />Watch live</Link>
+            <Link href="/watch" className="btn bg-amber text-asphalt hover:brightness-110"><span className="tally-dot" />Watch live</Link>
             <Link href="/submit" className="btn shadow-[inset_0_0_0_2px_var(--cream)] hover:bg-cream hover:text-tally">Submit your glorious clip</Link>
           </div>
-          <div className="mt-12 mx-auto max-w-4xl frame-ink bg-paper"><TwitchPlayer /></div>
+          <div className="mt-12 mb-4 flex justify-center text-cream [&_[role=tablist]]:border-cream"><PlatformSwitch /></div>
+          <div className="mx-auto max-w-4xl frame-ink bg-asphalt"><TwitchPlayer /></div>
           <div className="mt-6 mx-auto max-w-4xl text-left text-paper"><NowNext /></div>
         </div>
       </RaysPanel>
@@ -52,7 +53,7 @@ export default function Home() {
             const flag = s.slug === "prime-time", base = s.slug === "call-up";
             return (
               <Link key={s.slug} href={`/shows#${s.slug}`}
-                className={`group p-6 flex flex-col items-center text-center min-h-60 border-[3px] border-paper transition-transform hover:-translate-y-1 ${flag ? "rays-c text-cream md:row-span-2 justify-center" : base ? "bg-paper text-cream md:col-span-3 !min-h-0" : "bg-panel"}`}>
+                className={`group p-6 flex flex-col items-center text-center min-h-60 border-[3px] border-paper transition-transform hover:-translate-y-1 ${flag ? "rays-c text-cream md:row-span-2 justify-center" : base ? "bg-asphalt text-cream md:col-span-3 !min-h-0" : "bg-panel"}`}>
                 {flag && <Star className="size-14 text-amber mb-4" />}
                 <span className={`tc text-xs ${flag || base ? "text-cream/70" : "text-mute"}`}>{s.when} · {s.length}</span>
                 <span className={`display mt-3 ${flag ? "text-6xl md:text-7xl [text-shadow:4px_4px_0_var(--deep)]" : "text-4xl"}`}>{s.name}</span>
@@ -79,12 +80,12 @@ export default function Home() {
           <TopClips />
           <Link href="/clips" className="btn btn-live mt-6">Cast your vote</Link>
         </div>
-        <div className="relative overflow-hidden border-[3px] border-paper rays-gold text-paper p-6 md:p-8 text-center flex flex-col items-center">
+        <div className="relative overflow-hidden border-[3px] border-paper rays-gold text-asphalt p-6 md:p-8 text-center flex flex-col items-center">
           <Star className="size-12 text-tally" />
-          <p className="kicker !text-paper mt-3">The War Room</p>
+          <p className="kicker !text-asphalt mt-3">The War Room</p>
           <h2 className="display text-5xl mt-2">Report to the desk, comrade</h2>
           <p className="mt-4 max-w-md font-medium">Creators, ranked grinders, Zombies speedrunners: come on live, show your gameplay, defend your take. Every guest leaves with a clip pack for their own channels.</p>
-          <div className="mt-auto pt-6"><Link href="/guests" className="btn bg-paper text-cream hover:bg-tally">Apply as a guest</Link></div>
+          <div className="mt-auto pt-6"><Link href="/guests" className="btn bg-asphalt text-cream hover:bg-tally">Apply as a guest</Link></div>
         </div>
       </section>
 

@@ -18,16 +18,33 @@
   --paper: #1d1410;    /* text: ink */
   --mute: #6b5640;
   --cream: #f6ead0;
+  --asphalt: #1d1410;  /* fixed ink: footer, plates, dark buttons — same in both themes */
+  /* morning sun rising behind the page, like Leonida's golden hour */
+  --dawn: radial-gradient(1100px 560px at 50% -8%, rgba(232,163,23,.38), rgba(232,163,23,.12) 46%, transparent 72%);
   color-scheme: light;
+}
+/* Night: the broadcast after curfew. Blackout ink, poster red, gold. */
+:root[data-theme="night"] {
+  --studio: #140d0b; --panel: #1f1612; --panel-2: #2b1f19; --rule: #44332a;
+  --tally: #e0262c; --tally-hot: #ff3b40; --deep: #5a0a0d; --amber: #f0b429;
+  --paper: #f3e6c8; --mute: #b39d7c; --dawn: radial-gradient(1100px 560px at 50% -8%, rgba(224,38,44,.22), transparent 70%); color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="day"]) {
+    --studio: #140d0b; --panel: #1f1612; --panel-2: #2b1f19; --rule: #44332a;
+    --tally: #e0262c; --tally-hot: #ff3b40; --deep: #5a0a0d; --amber: #f0b429;
+    --paper: #f3e6c8; --mute: #b39d7c; --dawn: radial-gradient(1100px 560px at 50% -8%, rgba(224,38,44,.22), transparent 70%); color-scheme: dark;
+  }
 }
 @theme inline {
   --color-studio: var(--studio); --color-panel: var(--panel); --color-panel-2: var(--panel-2); --color-rule: var(--rule);
-  --color-tally: var(--tally); --color-amber: var(--amber); --color-paper: var(--paper); --color-mute: var(--mute); --color-cream: var(--cream); --color-deep: var(--deep);
+  --color-tally: var(--tally); --color-amber: var(--amber); --color-paper: var(--paper); --color-mute: var(--mute); --color-cream: var(--cream); --color-deep: var(--deep); --color-asphalt: var(--asphalt);
   --font-sans: "Inter Tight Variable", system-ui, sans-serif;
   --font-cond: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 }
-html, body { background: var(--studio); color: var(--paper); }
+html { background: var(--studio); transition: background-color .4s; }
+body { background-color: var(--studio); background-image: var(--dawn); background-repeat: no-repeat; background-attachment: fixed; color: var(--paper); }
 body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 
 /* Display: condensed, uppercase, tight — the broadcast voice */
@@ -43,9 +60,9 @@ body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webki
 /* Chyron — the signature element. A name bar with a tally strip. */
 .chyron { display: inline-flex; align-items: stretch; font-family: var(--font-cond); text-transform: uppercase; font-weight: 800; line-height: 1; }
 .chyron > .k { background: var(--tally); color: #fff; padding: .5em .7em .42em; display: flex; align-items: center; gap: .5em; letter-spacing: .08em; }
-.chyron > .k.amber { background: var(--amber); color: var(--paper); }
-.chyron > .k.steel { background: var(--paper); color: var(--cream); }
-.chyron > .v { background: var(--cream); color: var(--paper); box-shadow: inset 0 0 0 2px var(--paper); padding: .5em .85em .42em; letter-spacing: .03em; }
+.chyron > .k.amber { background: var(--amber); color: var(--asphalt); }
+.chyron > .k.steel { background: var(--asphalt); color: var(--cream); }
+.chyron > .v { background: var(--cream); color: var(--asphalt); box-shadow: inset 0 0 0 2px var(--asphalt); padding: .5em .85em .42em; letter-spacing: .03em; }
 .tally-dot { width: .55em; height: .55em; border-radius: 99px; background: currentColor; animation: tally 1.2s steps(2) infinite; }
 @keyframes tally { 50% { opacity: .25; } }
 
@@ -61,6 +78,7 @@ body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webki
 .btn:active { transform: translateY(1px); }
 .btn-live { background: var(--tally); color: #fff; } .btn-live:hover { background: var(--tally-hot); }
 .btn-line { box-shadow: inset 0 0 0 2px var(--paper); } .btn-line:hover { background: var(--paper); color: var(--studio); }
+.seal { border-radius: 9999px; box-shadow: 0 0 0 2px var(--asphalt); }
 .field { width: 100%; background: var(--studio); border: 1px solid var(--rule); padding: .7rem .85rem; color: var(--paper); }
 .field:focus { outline: none; border-color: var(--tally); }
 :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }

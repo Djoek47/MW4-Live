@@ -77,7 +77,7 @@ export default function SubmitPage() {
               <label className="flex gap-3 items-start text-sm"><input type="checkbox" required className="mt-1 accent-[#e10600]" />
                 This is my own gameplay. I&apos;m not sending someone else&apos;s stream or video.</label>
               <label className="flex gap-3 items-start text-sm"><input type="checkbox" required className="mt-1 accent-[#e10600]" />
-                MW4 Live may edit this clip and show it on its Twitch broadcasts, replays, highlight reels and social accounts, credited to my gamertag. I can ask for it to be removed at any time.</label>
+                MW4 Live may edit this clip and show it on its live broadcasts (YouTube and Twitch), replays, highlight reels and social accounts, credited to my gamertag. I can ask for it to be removed at any time.</label>
             </fieldset>
             {state === "error" && <p role="alert" className="text-tally font-semibold">{err}</p>}
             <button disabled={state === "sending"} className="btn btn-live w-fit">{state === "sending" ? "Sending…" : "Send it in"}</button>

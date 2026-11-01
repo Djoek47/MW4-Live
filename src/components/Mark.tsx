@@ -7,6 +7,25 @@ export function Mark({ className = "text-2xl" }: { className?: string }) {
   return <span className={`mark ${className}`}><b>MW4</b><span>LIVE</span></span>;
 }
 
+/** The state seal (public/brand/seal.svg, built by brand/seal.py). */
+export function Seal({ className = "size-12" }: { className?: string }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src="/brand/seal.svg" alt="" className={`seal shrink-0 ${className}`} />;
+}
+
+/** Header/footer lockup: seal + wordmark. The tagline drops under the mark on phones so the row fits 360px. */
+export function Lockup({ big = false }: { big?: boolean }) {
+  return (
+    <span className="flex items-center gap-2.5 sm:gap-3">
+      <Seal className={big ? "size-16" : "size-10 sm:size-11"} />
+      <span className="flex flex-col sm:flex-row sm:items-center sm:gap-3 leading-none">
+        <Mark className={big ? "text-3xl" : "text-xl sm:text-[26px]"} />
+        <span className={`kicker !tracking-[.18em] !text-mute ${big ? "" : "hidden lg:inline"} mt-1 sm:mt-0 !text-[.68rem]`}>The People&apos;s Broadcast</span>
+      </span>
+    </span>
+  );
+}
+
 export function SocialRow({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-wrap gap-2 ${className}`}>

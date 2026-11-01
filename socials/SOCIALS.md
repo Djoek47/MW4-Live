@@ -10,7 +10,7 @@ people, or anything that reads as endorsing an actual regime. The target is prop
 ## Assets (`brand/out/`, re-render with `python brand/render.py`)
 | Platform | Profile picture | Banner / extras |
 |---|---|---|
-| Twitch | `avatar-1000x1000.png` | `twitch_banner-1200x480.png`, offline screen `twitch_offline-1920x1080.png`, panels `panel_*-320x100.png` |
+| Twitch | `avatar-1000x1000.png` (the state seal) | `twitch_banner-1200x480.png`, offline screen `twitch_offline-1920x1080.png`, panels `panel_*-320x100.png` |
 | YouTube | `avatar-1000x1000.png` | `youtube_banner-2560x1440.png` (text sits in the 1546×423 safe zone) |
 | X | `avatar-400x400.png` | `x_banner-1500x500.png` (logo offset right of the profile photo) |
 | TikTok / Instagram | `avatar-400x400.png` | Reel/short end card `vertical_endcard-1080x1920.png` |

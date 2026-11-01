@@ -3,64 +3,86 @@
 @import "@fontsource/barlow-condensed/800.css";
 @import "@fontsource-variable/inter-tight";
 @import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/black-ops-one";
+@import "@fontsource/do-hyeon";
 
-/* MW4 LIVE — the People's Broadcast. Socialist-realist poster: cream paper, poster red, gold stars,
-   sunburst rays and strict symmetry. Satire of a style, set in a fictional state. */
-:root {
-  --studio: #f1e4c3;   /* page: aged poster paper */
-  --panel: #f8eed6;    /* raised paper */
-  --panel-2: #e8d7ad;  /* recessed / hover */
-  --rule: #cdb98a;
-  --tally: #c4161c;    /* poster red: live, primary action */
-  --tally-hot: #a50f15;
-  --deep: #7d0c10;     /* ray shadow */
-  --amber: #e8a317;    /* gold: stars, replays */
-  --paper: #1d1410;    /* text: ink */
-  --mute: #6b5640;
-  --cream: #f6ead0;
-  --asphalt: #1d1410;  /* fixed ink: footer, plates, dark buttons — same in both themes */
-  /* morning sun rising behind the page, like Leonida's golden hour */
-  --dawn: radial-gradient(1100px 560px at 50% -8%, rgba(232,163,23,.38), rgba(232,163,23,.12) 46%, transparent 72%);
+/* MW4 LIVE — three zones, one network.
+   OPS (site frame, home, watch, schedule): Modern Warfare black and yellow, tactical HUD.
+   NORTH (clips, submit, vote): socialist-realist poster parody of a fictional state.
+   SOUTH (shows, guests): Seoul at night — K-pop neon, variety-show captions, ramyeon and soju.
+   Toggle: data-theme="day" lights every zone up; "night" darkens the poster zone too. */
+:root, [data-zone="ops"] {
+  --studio: #0b0c0b; --panel: #141512; --panel-2: #1e201b; --rule: #2e3029;
+  --tally: #ffcd00; --tally-hot: #ffdd3c; --on-tally: #0b0c0b; --deep: #3a3000;
+  --amber: #c7c2ad; --on-amber: #0b0c0b; --accent-text: #ffcd00;
+  --paper: #ecebe2; --mute: #8f8d80; --cream: #f2efe4; --asphalt: #0b0c0b;
+  --zone-bg: radial-gradient(1100px 520px at 50% -10%, rgba(255,205,0,.10), transparent 70%);
+  --display-font: "Barlow Condensed", "Arial Narrow", sans-serif;
+  color-scheme: dark;
+}
+:root[data-theme="day"], :root[data-theme="day"] [data-zone="ops"] {
+  --studio: #ecebe4; --panel: #f7f6f1; --panel-2: #deddd3; --rule: #c4c1b4;
+  --tally: #111210; --tally-hot: #2b2c28; --on-tally: #ffcd00; --deep: #ffcd00;
+  --amber: #3d3f38; --on-amber: #f2efe4; --accent-text: #6e5700;
+  --paper: #111210; --mute: #5e5c52;
+  --zone-bg: radial-gradient(1100px 520px at 50% -10%, rgba(255,205,0,.32), transparent 70%);
   color-scheme: light;
 }
-/* Night: the broadcast after curfew. Blackout ink, poster red, gold. */
-:root[data-theme="night"] {
+[data-zone="north"] {
+  --studio: #f1e4c3; --panel: #f8eed6; --panel-2: #e8d7ad; --rule: #cdb98a;
+  --tally: #c4161c; --tally-hot: #a50f15; --on-tally: #f6ead0; --deep: #7d0c10;
+  --amber: #e8a317; --on-amber: #1d1410; --accent-text: #a50f15;
+  --paper: #1d1410; --mute: #6b5640; --cream: #f6ead0; --asphalt: #1d1410;
+  --zone-bg: radial-gradient(1100px 560px at 50% -8%, rgba(232,163,23,.38), rgba(232,163,23,.12) 46%, transparent 72%);
+  color-scheme: light;
+}
+:root[data-theme="night"] [data-zone="north"] {
   --studio: #140d0b; --panel: #1f1612; --panel-2: #2b1f19; --rule: #44332a;
-  --tally: #e0262c; --tally-hot: #ff3b40; --deep: #5a0a0d; --amber: #f0b429;
-  --paper: #f3e6c8; --mute: #b39d7c; --dawn: radial-gradient(1100px 560px at 50% -8%, rgba(224,38,44,.22), transparent 70%); color-scheme: dark;
+  --tally: #e0262c; --tally-hot: #ff3b40; --deep: #5a0a0d; --amber: #f0b429; --accent-text: #ff5a5f;
+  --paper: #f3e6c8; --mute: #b39d7c; --zone-bg: radial-gradient(1100px 560px at 50% -8%, rgba(224,38,44,.22), transparent 70%); color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="day"]) {
-    --studio: #140d0b; --panel: #1f1612; --panel-2: #2b1f19; --rule: #44332a;
-    --tally: #e0262c; --tally-hot: #ff3b40; --deep: #5a0a0d; --amber: #f0b429;
-    --paper: #f3e6c8; --mute: #b39d7c; --dawn: radial-gradient(1100px 560px at 50% -8%, rgba(224,38,44,.22), transparent 70%); color-scheme: dark;
-  }
+[data-zone="south"] {
+  --studio: #0d0a1f; --panel: #171331; --panel-2: #221b45; --rule: #382d6a;
+  --tally: #ff2d87; --tally-hot: #ff5ba3; --on-tally: #ffffff; --deep: #4b1a7a;
+  --amber: #00e1ff; --on-amber: #0d0a1f; --accent-text: #ff79b4;
+  --paper: #fbf5ff; --mute: #b3a6d6; --cream: #fff6fb; --asphalt: #0d0a1f;
+  --zone-bg: radial-gradient(900px 480px at 15% -5%, rgba(255,45,135,.28), transparent 70%), radial-gradient(900px 480px at 85% 0%, rgba(0,225,255,.20), transparent 70%);
+  --display-font: "Do Hyeon", "Barlow Condensed", sans-serif;
+  color-scheme: dark;
 }
+:root[data-theme="day"] [data-zone="south"] {
+  --studio: #fff4f9; --panel: #ffffff; --panel-2: #ffe3f0; --rule: #f5c3dc;
+  --tally-hot: #e0157a; --deep: #b51d72; --amber: #0094b0; --on-amber: #ffffff; --accent-text: #c8136a;
+  --paper: #20123a; --mute: #6f5c8d; --asphalt: #20123a;
+  --zone-bg: radial-gradient(900px 480px at 15% -5%, rgba(255,45,135,.18), transparent 70%), radial-gradient(900px 480px at 85% 0%, rgba(0,225,255,.16), transparent 70%);
+  color-scheme: light;
+}
+[data-zone] { background-color: var(--studio); background-image: var(--zone-bg); background-repeat: no-repeat; color: var(--paper); }
 @theme inline {
   --color-studio: var(--studio); --color-panel: var(--panel); --color-panel-2: var(--panel-2); --color-rule: var(--rule);
-  --color-tally: var(--tally); --color-amber: var(--amber); --color-paper: var(--paper); --color-mute: var(--mute); --color-cream: var(--cream); --color-deep: var(--deep); --color-asphalt: var(--asphalt);
+  --color-tally: var(--tally); --color-amber: var(--amber); --color-paper: var(--paper); --color-mute: var(--mute); --color-cream: var(--cream); --color-deep: var(--deep); --color-asphalt: var(--asphalt); --color-on-tally: var(--on-tally); --color-accent: var(--accent-text);
   --font-sans: "Inter Tight Variable", system-ui, sans-serif;
   --font-cond: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 }
 html { background: var(--studio); transition: background-color .4s; }
-body { background-color: var(--studio); background-image: var(--dawn); background-repeat: no-repeat; background-attachment: fixed; color: var(--paper); }
+body { background-color: var(--studio); color: var(--paper); }
 body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 
 /* Display: condensed, uppercase, tight — the broadcast voice */
-.display { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; line-height: .88; letter-spacing: -.005em; text-wrap: balance; overflow-wrap: break-word; }
-.kicker { font-family: var(--font-cond); font-weight: 600; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; color: var(--tally-hot); }
+.display { font-family: var(--display-font, var(--font-cond)); font-weight: 800; text-transform: uppercase; line-height: .88; letter-spacing: -.005em; text-wrap: balance; overflow-wrap: break-word; }
+.kicker { font-family: var(--font-cond); font-weight: 600; text-transform: uppercase; letter-spacing: .22em; font-size: .82rem; color: var(--accent-text); }
 .tc { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
 /* The mark */
 .mark { display: inline-flex; align-items: center; font-family: var(--font-cond); font-weight: 800; letter-spacing: .02em; line-height: 1; }
-.mark b { background: var(--tally); color: #fff; padding: .28em .5em .22em .4em; clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%); font-weight: 800; }
+.mark b { background: var(--tally); color: var(--on-tally); padding: .28em .5em .22em .4em; clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%); font-weight: 800; }
 .mark span { padding-left: .35em; }
 
 /* Chyron — the signature element. A name bar with a tally strip. */
 .chyron { display: inline-flex; align-items: stretch; font-family: var(--font-cond); text-transform: uppercase; font-weight: 800; line-height: 1; }
-.chyron > .k { background: var(--tally); color: #fff; padding: .5em .7em .42em; display: flex; align-items: center; gap: .5em; letter-spacing: .08em; }
-.chyron > .k.amber { background: var(--amber); color: var(--asphalt); }
+.chyron > .k { background: var(--tally); color: var(--on-tally); padding: .5em .7em .42em; display: flex; align-items: center; gap: .5em; letter-spacing: .08em; }
+.chyron > .k.amber { background: var(--amber); color: var(--on-amber); }
 .chyron > .k.steel { background: var(--asphalt); color: var(--cream); }
 .chyron > .v { background: var(--cream); color: var(--asphalt); box-shadow: inset 0 0 0 2px var(--asphalt); padding: .5em .85em .42em; letter-spacing: .03em; }
 .tally-dot { width: .55em; height: .55em; border-radius: 99px; background: currentColor; animation: tally 1.2s steps(2) infinite; }
@@ -76,7 +98,7 @@ body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; -webki
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
   font-size: 1.05rem; padding: .78rem 1.35rem .7rem; transition: background .15s, color .15s, transform .1s; }
 .btn:active { transform: translateY(1px); }
-.btn-live { background: var(--tally); color: #fff; } .btn-live:hover { background: var(--tally-hot); }
+.btn-live { background: var(--tally); color: var(--on-tally); } .btn-live:hover { background: var(--tally-hot); }
 .btn-line { box-shadow: inset 0 0 0 2px var(--paper); } .btn-line:hover { background: var(--paper); color: var(--studio); }
 .seal { border-radius: 9999px; box-shadow: 0 0 0 2px var(--asphalt); }
 .field { width: 100%; background: var(--studio); border: 1px solid var(--rule); padding: .7rem .85rem; color: var(--paper); }
@@ -104,3 +126,31 @@ label > span.l { font-family: var(--font-cond); font-weight: 600; text-transform
 .frame-ink { border: 3px solid var(--paper); box-shadow: 0 0 0 6px var(--cream), 0 0 0 9px var(--paper); }
 .slogan { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
 .stars::before, .stars::after { content: "★"; color: var(--amber); margin: 0 .5em; }
+
+/* ▲ OPS: tactical HUD ▲ */
+.stencil { font-family: "Black Ops One", var(--font-cond); font-weight: 400; letter-spacing: .02em; text-transform: uppercase; }
+.hazard { background: repeating-linear-gradient(-45deg, #ffcd00 0 14px, #0b0c0b 14px 28px); }
+.hud { position: relative; }
+.hud::before, .hud::after { content: ""; position: absolute; width: 22px; height: 22px; border: 3px solid var(--tally); pointer-events: none; }
+.hud::before { left: -1px; top: -1px; border-right: 0; border-bottom: 0; }
+.hud::after { right: -1px; bottom: -1px; border-left: 0; border-top: 0; }
+.ticks { background-image: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 12px), repeating-linear-gradient(90deg, var(--tally) 0 2px, transparent 2px 60px); background-size: 100% 8px, 100% 14px; background-repeat: no-repeat; background-position: bottom, bottom; }
+.ops-hero { background-color: #0b0c0b; color: #f2efe4; background-image: linear-gradient(rgba(255,205,0,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,205,0,.07) 1px, transparent 1px), radial-gradient(900px 500px at 50% 0%, rgba(255,205,0,.16), transparent 70%); background-size: 48px 48px, 48px 48px, auto; }
+.patch { border-radius: 18%; }
+.ko { font-family: "Do Hyeon", var(--font-sans); letter-spacing: 0; text-transform: none; }
+
+/* ♥ SOUTH: Seoul neon ♥ */
+.neon { color: #fff; text-shadow: 0 0 6px var(--tally), 0 0 18px var(--tally), 0 0 36px var(--tally); }
+.neon-c { color: #fff; text-shadow: 0 0 6px #00e1ff, 0 0 18px #00e1ff, 0 0 32px #00a9c7; }
+.neon-box { border: 2px solid var(--tally); box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset, 0 0 18px rgba(255,45,135,.55), inset 0 0 18px rgba(255,45,135,.25); border-radius: 18px; }
+.south-hero { background-color: #0d0a1f; color: #fff6fb;
+  background-image: radial-gradient(700px 380px at 12% 20%, rgba(255,45,135,.45), transparent 70%), radial-gradient(700px 380px at 88% 30%, rgba(0,225,255,.35), transparent 70%), radial-gradient(600px 300px at 50% 110%, rgba(177,140,255,.4), transparent 70%); }
+.caption { display: inline-block; font-family: "Do Hyeon", var(--font-sans); font-size: 1.05em; padding: .2em .7em; border-radius: 999px; background: #ffe600; color: #20123a; box-shadow: 3px 3px 0 #20123a; transform: rotate(-2deg); }
+.caption.pink { background: #ff2d87; color: #fff; transform: rotate(2deg); }
+.caption.cyan { background: #00e1ff; color: #0d0a1f; transform: rotate(-1deg); }
+[data-zone="south"] .btn { border-radius: 999px; }
+[data-zone="south"] .panel { border-radius: 18px; }
+[data-zone="south"] .field { border-radius: 12px; }
+@keyframes bob { 50% { transform: translateY(-8px) rotate(var(--r, 0deg)); } }
+.bob { animation: bob 3.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .bob { animation: none; } }

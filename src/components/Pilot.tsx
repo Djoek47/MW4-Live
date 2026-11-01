@@ -25,7 +25,7 @@ export function PilotStrip() {
       {PILOT.map((t, i) => {
         const n = i + 1, state = n < d ? "past" : n === d ? "today" : "next";
         return (
-          <li key={t} className={`p-3 min-h-28 flex flex-col ${state === "today" ? "bg-tally text-white" : "bg-panel"} ${state === "past" ? "opacity-45" : ""}`}>
+          <li key={t} className={`p-3 min-h-28 flex flex-col ${state === "today" ? "bg-tally text-on-tally" : "bg-panel"} ${state === "past" ? "opacity-45" : ""}`}>
             <span className="tc text-[11px] opacity-80">D{String(n).padStart(2, "0")} · {pilotDate(n)}</span>
             <span className="display text-lg md:text-xl mt-auto leading-[.95]">{t}</span>
           </li>

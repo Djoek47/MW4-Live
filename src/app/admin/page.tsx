@@ -64,7 +64,7 @@ export default function Admin() {
         <div><p className="kicker">Control room</p><h1 className="display text-6xl mt-2">Run the network</h1></div>
         <div role="tablist" className="flex border border-rule">
           {([["clips", `Clip queue · ${clips.length}`], ["guests", `Guests · ${guests.filter((g) => g.status === "new").length} new`]] as const).map(([k, l]) => (
-            <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className={`px-4 py-2 display text-lg ${tab === k ? "bg-tally text-white" : "text-mute"}`}>{l}</button>))}
+            <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)} className={`px-4 py-2 display text-lg ${tab === k ? "bg-tally text-on-tally" : "text-mute"}`}>{l}</button>))}
         </div>
       </div>
 

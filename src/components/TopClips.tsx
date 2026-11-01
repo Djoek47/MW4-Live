@@ -10,7 +10,7 @@ export function ClipSlate({ c, rank }: { c: Clip; rank?: number }) {
     <div className="relative aspect-video bg-panel-2 overflow-hidden scan">
       <div className="absolute inset-0 gridbg opacity-40" />
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-deep/45" />
-      {rank != null && <span className="absolute left-0 top-0 display text-5xl bg-tally text-white px-3 pt-2 pb-1">{rank}</span>}
+      {rank != null && <span className="absolute left-0 top-0 display text-5xl bg-tally text-on-tally px-3 pt-2 pb-1">{rank}</span>}
       <span className="absolute right-3 top-3 chyron text-[11px]"><span className="k steel"><PlatformIcon name={c.platform} className="size-3" />{platformName[c.platform]}</span><span className="v">{c.mode ?? "MW4"}</span></span>
       {c.status === "aired" && <span className="absolute left-3 bottom-3 chyron text-[11px]"><span className="k">Aired</span></span>}
     </div>

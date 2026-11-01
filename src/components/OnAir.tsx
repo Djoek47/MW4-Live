@@ -37,7 +37,7 @@ export function OnAirBar() {
 export function Ticker() {
   return (
     <div className="h-8 bg-studio border-b border-rule flex items-center overflow-hidden text-[13px] font-semibold" aria-label="News ticker">
-      <span className="shrink-0 h-full flex items-center px-3 bg-tally text-white display text-base tracking-wider z-10">MW4 Live</span>
+      <span className="shrink-0 h-full flex items-center px-3 bg-tally text-on-tally display text-base tracking-wider z-10">MW4 Live</span>
       <div className="overflow-hidden flex-1"><div className="ticker-track">{TICKER.map((x, i) => <span key={i}>{x}<span className="text-tally ml-14">///</span></span>)}</div></div>
     </div>
   );

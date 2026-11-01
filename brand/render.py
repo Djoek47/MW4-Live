@@ -23,11 +23,11 @@ async def main():
             await pg.wait_for_timeout(150)
             await pg.screenshot(path=str(OUT / f"{name}-{w}x{h}.png"), clip={"x": 0, "y": 0, "width": w, "height": h})
             print("ok", name, w, h)
-        # Avatars + favicon = the state seal (public/brand/seal.svg; rebuild with brand/seal.py)
-        seal = (HERE.parent / "public/brand/seal.svg").as_uri()
+        # Avatars + favicon = the unit patch (public/brand/patch.svg; rebuild with brand/patch.py)
+        seal = (HERE.parent / "public/brand/patch.svg").as_uri()  # main logo: the unit patch
         for n in (1000, 400, 180):
             await pg.set_viewport_size({"width": n, "height": n})
-            await pg.set_content(f'<body style="margin:0;background:#e8a317"><img src="{seal}" style="width:{n}px;height:{n}px;display:block"></body>')
+            await pg.set_content(f'<body style="margin:0;background:#0b0c0b"><img src="{seal}" style="width:{n}px;height:{n}px;display:block"></body>')
             await pg.wait_for_timeout(300)
             await pg.screenshot(path=str(OUT / f"avatar-{n}x{n}.png"))
             print("ok avatar", n)

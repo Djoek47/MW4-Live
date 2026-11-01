@@ -38,10 +38,16 @@ The Twitch embed passes the current hostname as `parent` automatically, so it wo
 `src/lib/content.ts`: schedule, shows, 21-day topics, ticker, social links.
 Keep `broadcast/config.js › schedule` in step with it (that one drives the on-stream graphics).
 
-## Theme
-Day = poster paper with a dawn glow; Night = "curfew mode" (toggle in the header, remembered per browser, same mechanism as Live From Leonida).
-Logo = the state seal, `public/brand/seal.svg` (built by `python brand/seal.py`; avatars and favicon come from it via `python brand/render.py`).
-Socialist-realist poster parody: cream paper, poster red, gold stars, sunburst rays, strict symmetry, deadpan "Ministry" copy.
-Rules: fictional state only, no real leaders/flags/emblems, jokes aim at propaganda style, never at Korean people. Functional text (buttons, forms, rules) stays plain.
+## Theme: three zones (`data-zone` in `src/app/globals.css`)
+| Zone | Pages | Look |
+|---|---|---|
+| **Ops** | site frame, home, watch, schedule, about | Modern Warfare black + yellow: HUD brackets, hazard stripes, stencil type, grid coordinates, Task Force dog tags |
+| **North** | clips, submit (and the left half of the home DMZ) | Propaganda poster parody: rays, gold stars, the state seal, "Ministry" copy |
+| **South** | shows, guests (and the right half of the home DMZ) | Seoul at night: K-pop neon, lightsticks, variety-show caption stickers, ramyeon / kimchi / soju / tteokbokki |
+
+The header toggle lights every zone up (day) or down (night); default is night because the frame is MW4 black.
+Logos: unit patch `public/brand/patch.svg` (main logo, favicon, avatars; `python brand/patch.py`), state seal `public/brand/seal.svg` (North pages; `python brand/seal.py`). Re-render avatars with `python brand/render.py`.
+No Activision logo or key art is used: the look borrows the game's colours and its Korea setting, not its trademarks.
+Rules: the North is a fictional state (no real leaders, flags or emblems); the South celebrates pop culture, it doesn't mock it. Buttons, forms and rules stay plain.
 
 MW4 Live is fan-run and not affiliated with Activision.

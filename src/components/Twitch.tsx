@@ -31,7 +31,7 @@ export function PlatformSwitch() {
     <div role="tablist" aria-label="Watch on" className="inline-flex border-2 border-paper">
       {platforms.map((k) => (
         <button key={k} role="tab" aria-selected={p === k} onClick={() => set(k)}
-          className={`display px-3 py-1 text-sm ${p === k ? "bg-tally text-cream" : "hover:bg-panel-2"}`}>{k === "twitch" ? "Twitch" : "YouTube"}</button>
+          className={`display px-3 py-1 text-sm ${p === k ? "bg-tally text-on-tally" : "hover:bg-panel-2"}`}>{k === "twitch" ? "Twitch" : "YouTube"}</button>
       ))}
     </div>
   );

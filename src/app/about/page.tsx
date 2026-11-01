@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { PageHead, SocialRow } from "@/components/Mark";
+import { Zone, PageHead, SocialRow } from "@/components/Mark";
 
 export const metadata: Metadata = { title: "About" };
 
 export default function About() {
   return (
-    <>
-      <PageHead kicker="About the network" title={<>Fan-run.<br /><span className="text-amber">Always on.</span></>}
+    <Zone name="ops">
+      <PageHead zone="ops" kicker="About the network" title={<>Fan-run.<br /><span className="text-[#ffcd00]">Always on.</span></>}
         sub="MW4 Live is an independent Modern Warfare 4 broadcast on YouTube and Twitch, built like a sports network: fixed shows, a real schedule, and the community on screen." />
       <div className="mx-auto max-w-4xl px-4 py-12 grid gap-12">
         <section className="grid gap-4">
@@ -35,6 +35,6 @@ export default function About() {
         </section>
         <p className="text-sm text-mute border-t border-rule pt-6">MW4 Live is an independent, fan-run broadcast. It is not affiliated with, endorsed or sponsored by Activision Publishing, Inc. or the Call of Duty franchise. Call of Duty and Modern Warfare are trademarks of Activision; all other trademarks belong to their owners.</p>
       </div>
-    </>
+    </Zone>
   );
 }

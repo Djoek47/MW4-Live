@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { sb, isLive } from "@/lib/supabase";
 import { useUser } from "@/lib/data";
-import { PageHead } from "@/components/Mark";
+import { Zone, PageHead } from "@/components/Mark";
 
 const SEATS = [
   { t: "The War Room", d: "Sit at the desk for a 20-minute interview and one debate topic. 18:00 ET." },
@@ -32,8 +32,8 @@ export default function Guests() {
     if (error) { setErr(error.message); setState("error"); } else setState("sent");
   }
   return (
-    <>
-      <PageHead kicker="Guest desk" title={<>Report to the<br /><span className="text-amber">War Room</span></>}
+    <Zone name="south">
+      <PageHead zone="south" ko="출연 신청" kicker="출연 신청 · Guest desk" title={<>Your debut<br /><span className="neon-c">stage</span></>}
         sub="Streamers, creators, ranked players, Zombies grinders. Bring a take or a highlight; leave with a clip pack and new viewers." />
       <div className="mx-auto max-w-7xl px-4 py-12 grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <div>
@@ -71,6 +71,6 @@ export default function Guests() {
           )}
         </div>
       </div>
-    </>
+    </Zone>
   );
 }

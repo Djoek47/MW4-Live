@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { sb, isLive } from "@/lib/supabase";
 import { useUser, platformName, MODES } from "@/lib/data";
-import { PageHead } from "@/components/Mark";
+import { Zone, PageHead } from "@/components/Mark";
 
 export default function SubmitPage() {
   const { user, loading } = useUser();
@@ -37,8 +37,8 @@ export default function SubmitPage() {
   }
 
   return (
-    <>
-      <PageHead kicker="Ministry of Highlights" title={<>Submit your<br /><span className="text-amber">glorious clip</span></>}
+    <Zone name="north">
+      <PageHead zone="north" ko="영광의 클립을 제출하라" kicker="Ministry of Highlights" title={<>Submit your<br /><span className="text-amber">glorious clip</span></>}
         sub="We review every clip. Approved ones run in the Highlight Reel around the clock, the best make Prime Time, and the week's top vote-getter opens Saturday's show." />
       <div className="mx-auto max-w-3xl px-4 py-12">
         {loading ? null : !user ? (
@@ -84,6 +84,6 @@ export default function SubmitPage() {
           </form>
         )}
       </div>
-    </>
+    </Zone>
   );
 }

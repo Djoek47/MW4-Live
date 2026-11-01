@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 
 type Mode = "day" | "night";
 
-/** Day = poster paper. Night = the broadcast after curfew. Remembered per browser. */
+/** Lights on/off for every zone. Default (no choice yet) = night: the MW4 frame is black. Remembered per browser. */
 export function ThemeToggle() {
   const [mode, setMode] = useState<Mode>("day");
   useEffect(() => {
     const set = document.documentElement.dataset.theme as Mode | undefined;
-    setMode(set ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "night" : "day"));
+    setMode(set ?? "night"); // the network frame is MW4 black by default
   }, []);
   function flip() {
     const next: Mode = mode === "day" ? "night" : "day";
@@ -17,8 +17,8 @@ export function ThemeToggle() {
     setMode(next);
   }
   return (
-    <button onClick={flip} className="size-10 grid place-items-center border-2 border-paper hover:bg-tally hover:text-cream hover:border-tally transition-colors"
-      aria-label={mode === "day" ? "Switch to night mode" : "Switch to day mode"} title={mode === "day" ? "Curfew mode" : "Day mode"}>
+    <button onClick={flip} className="size-10 grid place-items-center border-2 border-paper hover:bg-tally hover:text-on-tally hover:border-tally transition-colors"
+      aria-label={mode === "day" ? "Switch to night mode" : "Switch to day mode"} title={mode === "day" ? "Lights off" : "Lights on"}>
       {mode === "day" ? (
         <svg viewBox="0 0 24 24" className="size-5" fill="currentColor" aria-hidden><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a8.5 8.5 0 1 0 11.5 11.5Z" /></svg>
       ) : (

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { castVote, myVote, weekClips, useUser, type Clip } from "@/lib/data";
 import { ClipSlate } from "@/components/TopClips";
-import { PageHead } from "@/components/Mark";
+import { Zone, PageHead } from "@/components/Mark";
 import { isLive } from "@/lib/supabase";
 
 export default function ClipsPage() {
@@ -22,8 +22,8 @@ export default function ClipsPage() {
   }
 
   return (
-    <>
-      <PageHead kicker="Clip of the week" title={<>The People&apos;s<br /><span className="text-amber">Vote</span></>}
+    <Zone name="north">
+      <PageHead zone="north" ko="인민의 투표" kicker="Clip of the week" title={<>The People&apos;s<br /><span className="text-amber">Vote</span></>}
         sub="Every approved clip plays in the Highlight Reel. The top three are named Heroes of the Week and open Saturday's Prime Time. One comrade, one vote, movable until Sunday 23:59 ET. Results are not decided in advance. We know that's unusual." />
       <div className="mx-auto max-w-7xl px-4 py-12">
         {!isLive && <p className="mb-8 border border-amber/60 bg-amber/25 px-4 py-2 text-sm text-paper">Preview mode: sample clips with made-up gamertags. Connect Supabase to go live.</p>}
@@ -49,6 +49,6 @@ export default function ClipsPage() {
           ))}
         </ol>
       </div>
-    </>
+    </Zone>
   );
 }

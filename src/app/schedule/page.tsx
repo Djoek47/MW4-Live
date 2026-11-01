@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { DAILY, PILOT, PILOT_DAYS, etParts, nowAndNext, pilotDay, pilotDate } from "@/lib/content";
 import { KindTag } from "@/components/OnAir";
-import { PageHead } from "@/components/Mark";
+import { Zone, PageHead } from "@/components/Mark";
 
 export default function Schedule() {
   const [today, setToday] = useState<number | null>(null);
@@ -14,14 +14,14 @@ export default function Schedule() {
   const day = sel ?? start;
 
   return (
-    <>
-      <PageHead kicker="Broadcast guide · Eastern time" title={<>The Five-Show<br /><span className="text-amber">Plan</span></>}
+    <Zone name="ops">
+      <PageHead zone="ops" kicker="Broadcast guide · Eastern time" title={<>Mission<br /><span className="text-[#ffcd00]">schedule</span></>}
         sub="Five live shows a day. Everything between them is a labelled replay or the Highlight Reel, so there's something on whenever you tune in." />
       <div className="mx-auto max-w-7xl px-4 py-12">
         <div role="tablist" className="flex overflow-x-auto border border-rule">
           {days.map((d) => (
             <button key={d} role="tab" aria-selected={d === day} onClick={() => setSel(d)}
-              className={`shrink-0 px-5 py-3 text-left border-r border-rule last:border-0 ${d === day ? "bg-tally text-white" : "bg-panel hover:bg-panel-2"}`}>
+              className={`shrink-0 px-5 py-3 text-left border-r border-rule last:border-0 ${d === day ? "bg-tally text-on-tally" : "bg-panel hover:bg-panel-2"}`}>
               <span className="tc text-[11px] opacity-80 block">{d === today ? "Today" : `Day ${d}`}</span>
               <span className="display text-xl">{pilotDate(d)}</span>
             </button>
@@ -45,6 +45,6 @@ export default function Schedule() {
         </ul>
         <p className="text-sm text-mute mt-6">Times are targets, not promises. If a live show moves, the channel shows the schedule card with the new time, and we post it on X and Discord first.</p>
       </div>
-    </>
+    </Zone>
   );
 }
